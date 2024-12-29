@@ -5,13 +5,12 @@ public class Book {
     private String author;
     private  boolean status;
 
-    public Book() {
-    }
 
-    public Book(String title, String author, boolean status) {
+
+    public Book(String title, String author) {
         this.title = title;
         this.author = author;
-        this.status = status;
+        this.status = true;
     }
 
     public String getTitle() {
@@ -45,7 +44,7 @@ public class Book {
     }
     @Override
     public String toString(){
-        return "  The book:: " + title + ", the author:: " + author + ", is available:: " + status;
+        return "  The book:: " + title + ", the author:: " + author + ", is available:: " + (status ? "yes" : " no ");
     }
 
 }

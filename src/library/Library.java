@@ -5,13 +5,19 @@ import java.util.ArrayList;
 public class Library {
     private ArrayList<Book> books;
 
+
+
     public Library(ArrayList<Book> books) {
         this.books = books;
     }
+    public Library(){
+        this.books = new ArrayList<>();
+    }
+
     //Metoda de adaugare a cartii
     public void addBooks(Book book){
         books.add(book);
-        System.out.println("  Carte adaugata:: " + book.getTitle());
+        System.out.println("  Book added:: " + book.getTitle());
     }
 
     //Metoda de imprumutare a cartilor
@@ -20,10 +26,10 @@ public class Library {
              books) {
             if(book.getTitle().equalsIgnoreCase(title) & book.isStatus()){
                 book.borrow();
-                System.out.println("  Carte imprumutata:: " + title);
+                System.out.println("  Borrowed book:: " + title);
             }
             else {
-                System.out.println("  Cartea la moment nu este disponibila sau nu exusta.");
+                System.out.println("  The book is currently not available or does not exist.");
             }
         }
     }
@@ -33,11 +39,11 @@ public class Library {
              books) {
             if(book.getTitle().equalsIgnoreCase(title) & !book.isStatus()){
                 book.returns();
-                System.out.println("  Cartea returnata:: " + title);
+                System.out.println("  Book returned:: " + title);
                 return;
             }
             else {
-                System.out.println("  Cartea nu a fost imprumutata sau nu exista.");
+                System.out.println("  The book was not borrowed or does not exist.");
             }
         }
     }
@@ -45,7 +51,7 @@ public class Library {
     //Metoda de afisare a cartilor
     public void showDetails(){
         if (books.isEmpty()){
-            System.out.println("  Nu exista carti in bibliotaca.");
+            System.out.println("  There are no books in the library.");
         }
         else {
             for (Book book:
